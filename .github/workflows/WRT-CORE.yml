@@ -190,11 +190,6 @@ jobs:
             cat $GITHUB_WORKSPACE/Config/$WRT_CONFIG.txt $GITHUB_WORKSPACE/Config/GENERAL.txt >> .config
           fi
 
-          if [[ "$WRT_TARGET" == "mediatek" ]]; then
-            ./scripts/kconfig.pl + .config "$GITHUB_WORKSPACE/Config/MEDIATEK-SLIM.txt" > .config.mediatek
-            mv .config.mediatek .config
-          fi
-
           $GITHUB_WORKSPACE/Scripts/Settings.sh
           $GITHUB_WORKSPACE/.github/scripts/prepare-build-host.sh
 
